@@ -22,15 +22,19 @@ We should be able to do below things with this project:
 I have created a Docker file which packs the application into docker image.
 
 Following are the commands that are needed to run from project root directory
-Step 1:
+# Step 1:
     $ mvn clean package
-After successful run, Target file will be generated.
-Step 2 :
+    
+<br /> After successful run, Target file will be generated.
+
+# Step 2 :
     $ docker build -t springio/gs-spring-boot-docker .
-After successful Run, Docker build success.
-Step3:
+    
+<br /> After successful Run, Docker build success.
+# Step3:
     $ docker run -p 8080:8080 -t springio/gs-spring-boot-docker
-After successful run, Docker image and container will be generated
+    
+<br /> After successful run, Docker image and container will be generated
     
 After that one can test with sample requests.
 
