@@ -1,4 +1,4 @@
-## Telenor Code Test:
+# Telenor Code Test:
 In a basic Dockerized Springboot Maven application, build a single REST API endpoint that returns a filtered set of products from the provided data in the data.csv file.
 ## Tools and Prerequisites:
 1.	Jdk 11
@@ -22,29 +22,26 @@ We should be able to do below things with this project:
 I have created a Docker file which packs the application into docker image.
 
 Following are the commands that are needed to run from project root directory
-# Step 1:
+## Step 1:
     $ mvn clean package
     
 <br /> After successful run, Target file will be generated.
 
-# Step 2 :
+## Step 2 :
     $ docker build -t springio/gs-spring-boot-docker .
     
-<br /> After successful Run, Docker build success.
-# Step3:
+<br /> After successful Run, Docker image will be created/generated.
+## Step3:
     $ docker run -p 8080:8080 -t springio/gs-spring-boot-docker
     
-<br /> After successful run, Docker image and container will be generated
+<br /> After successful run, Docker container will be created and listen for the incoming(REST) requests
     
 After that one can test with sample requests.
 
-## Sample Request Tested:
-
-Positive scenarios:
+## few Requests Tested:
 
 http://localhost:8080/product
  
-
 http://localhost:8080/product?type=phone&max_price=1000&city=Stockholm
 
 http://localhost:8080/product?type=phone&min_price=100&city=Stockholm
@@ -56,18 +53,14 @@ http://localhost:8080/product?type=subscription&max_price=1000&city=Stockholm
 
 http://localhost:8080/product?type=phone&min_price=100&max_price=1000&city=Stockholm&property:color=lila
 
-You can use below curl commands if it is available for you.
-    
-    $ curl -i http://localhost:8080/product?type=subscription&max_price=1000&city=Stockholm
-
-
-## Negative scenarios:
 
 This solution won’t allow multiple values. Below request wont return any values.
 
 http://localhost:8080/product?type=type=phone,subscription&min_price=100&max_price=1000&city=Stockholm&property:color=lila
 
-
+You can use below curl commands if it is available for you.
+    
+    $ curl -i http://localhost:8080/product?type=subscription&max_price=1000&city=Stockholm
 
 After finish run following commands:
     
